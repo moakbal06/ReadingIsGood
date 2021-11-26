@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create tables" author="erkan.erkisi">
+        <createTable tableName="customer">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_customer_id"
+                startValue="1"/>
+        <createTable tableName="book">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author_id" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="number"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_book_id"
+                startValue="1"/>
+
+        <createTable tableName="author">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_author_id"
+                startValue="1"/>
+
+        <createTable tableName="order_headers">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="number"/>
+            <column name="total_amount" type="number"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_order_header_id"
+                startValue="1"/>
+
+        <createTable tableName="order_lines">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="header_id" type="number">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" type="number"/>
+            <column name="amount" type="number"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_order_line_id"
+                startValue="1"/>
+        <createTable tableName="book_stock">
+            <column name="id" type="serial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="book_id" type="number"/>
+            <column name="quantity" type="number"/>
+            <column name="created_at" type="datetime"/>
+            <column name="updated_at" type="datetime"/>
+        </createTable>
+        <createSequence
+                incrementBy="50"
+                maxValue="999999999999999"
+                minValue="1"
+                ordered="true"
+                sequenceName="seq_rig_book_stock_id"
+                startValue="1"/>
+    </changeSet>
+    <changeSet id="inserts" author="erkan.erkisi" >
+        <insert tableName="author">
+            <column name="id" value="1"/>
+            <column name="name" value="Erkan Erkisi"/>
+        </insert>
+        <insert tableName="author">
+            <column name="id" value="2"/>
+            <column name="name" value="Feyza Erkisi"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="1"/>
+            <column name="name" value="Book1"/>
+            <column name="author_id" value="1"/>
+            <column name="amount" value="120"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="2"/>
+            <column name="name" value="Book2"/>
+            <column name="author_id" value="1"/>
+            <column name="amount" value="120.8"/>
+        </insert>
+        <insert tableName="book">
+            <column name="id" value="3"/>
+            <column name="name" value="Book3"/>
+            <column name="author_id" value="2"/>
+            <column name="amount" value="125.99"/>
+        </insert>
+        <insert tableName="book_stock">
+            <column name="id" value="1"/>
+            <column name="book_id" value="1"/>
+            <column name="quantity" value="10"/>
+        </insert>
+        <insert tableName="book_stock">
+            <column name="id" value="2"/>
+            <column name="book_id" value="2"/>
+            <column name="quantity" value="5"/>
+        </insert>
+        <insert tableName="book_stock">
+            <column name="id" value="3"/>
+            <column name="book_id" value="3"/>
+            <column name="quantity" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
