@@ -31,12 +31,7 @@ docker run -p 8080:8080 readingisgood
 * H2 db
 * Liquibase
 
-## Author
 
-👤 **Erkan Erkisi**
-
-* Website: erkanerkisi.github.io
-* Github: [@erkanerkisi](https://github.com/erkanerkisi)
 
 ## Show your support
 

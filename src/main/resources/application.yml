@@ -4,7 +4,7 @@ spring:
       matching-strategy: ant_path_matcher
   liquibase:
     enabled: true
-    default-schema: EKO
+    default-schema: reading
     database-change-log-table: RIG_DATABASECHANGELOG
     database-change-log-lock-table: RIG_DATABASECHANGELOGLOCK
     contexts: ${spring.profiles}
@@ -23,17 +23,18 @@ spring:
   jpa:
     properties:
       hibernate:
-        default_schema: EKO
+        default_schema: reading
     hibernate:
       ddl-auto: none
       javax:
         persistence:
           lock:
             timeout: 15000 #WORKS!
+    show-sql: true
   datasource:
     hikari:
       maximum-pool-size: 10
-    url: jdbc:h2:mem:testdb;INIT=CREATE SCHEMA IF NOT EXISTS EKO;
+    url: jdbc:h2:mem:testdb;INIT=CREATE SCHEMA reading
     username: sa
     password:
     driver:
@@ -41,3 +42,8 @@ spring:
   sql:
     init:
       mode: always
+# App Properties
+reading:
+  app:
+    jwtSecret: readingisgood
+    jwtExpirationMs: 86400000
