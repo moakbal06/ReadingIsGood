@@ -24,7 +24,7 @@ docker run -p 8080:8080 readingisgood
 
 * java 11
 * Junit5
-* Springboot version 2.6.0
+* Springboot version 2.7.3
 * Swagger ui version 3.0.0
 * Lombok
 * Spring security
