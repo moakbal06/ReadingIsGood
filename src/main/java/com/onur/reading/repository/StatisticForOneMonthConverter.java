@@ -3,7 +3,7 @@ package com.onur.reading.repository;
 import java.math.BigDecimal;
 
 public interface StatisticForOneMonthConverter {
-    String getMonthx();
+    String getDate();
 
     Long getTotalOrderCount();
 

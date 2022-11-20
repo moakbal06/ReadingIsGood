@@ -25,8 +25,8 @@ public class StatisticForOneMonth {
     public static StatisticForOneMonth of(StatisticForOneMonthConverter e) {
         try {
             return StatisticForOneMonth.builder()
-                    .month(RIGUtils.getMonth(e.getMonthx()))
-                    .year(RIGUtils.getYear(e.getMonthx()))
+                    .month(RIGUtils.getMonth(e.getDate()))
+                    .year(RIGUtils.getYear(e.getDate()))
                     .totalBookCount(e.getTotalBookCount())
                     .totalOrderCount(e.getTotalOrderCount())
                     .build();

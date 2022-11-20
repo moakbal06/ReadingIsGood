@@ -46,7 +46,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"password\": \"laboris do\",\n  \"username\": \"Lorem in eiusmod\"\n}",
+							"raw": "{\n  \"password\": \"string\",\n  \"username\": \"string\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,7 +146,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"email\": \"aliquip tempo\",\n  \"password\": \"dolore sit sunt\",\n  \"username\": \"ullamco aliquip \",\n  \"role\": [\n    \"consectetur\",\n    \"ullamco deserunt elit aliquip\"\n  ]\n}",
+							"raw": "{\n  \"email\": \"moakbal06@gmail.com\",\n  \"password\": \"string\",\n  \"username\": \"string\",\n  \"role\": [\n    \"USER\"\n  ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -210,6 +210,26 @@
 						}
 					]
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -217,26 +237,14 @@
 			"item": [
 				{
 					"name": "createBook",
+					"protocolProfileBehavior": {
+						"strictSSL": true,
+						"disableUrlEncoding": false,
+						"followRedirects": true
+					},
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "<API Key>",
-									"type": "string"
-								},
-								{
-									"key": "in",
-									"value": "header",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [
@@ -247,11 +255,17 @@
 							{
 								"key": "Accept",
 								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2Njg5NjExNjAsImV4cCI6MTY2OTA0NzU2MH0.IcrUcvkExdxKITn-1_UUjnrIHjkWmT1M8QXN0rN3948qool1xLum087mQXw_Mlw6UIIan-vnJkta5D1E_AKERA",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"authorName\": \"fugiat sed\",\n  \"isbn\": \"eiusmod fugiat\",\n  \"name\": \"deserunt non laboris\",\n  \"quantity\": -61846080\n}",
+							"raw": "{\n  \"authorName\": \"Murat Mentes\",\n  \"isbn\": \"8888-8888-888\",\n  \"name\": \"Antika Titanik\",\n  \"quantity\": 15\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -316,26 +330,6 @@
 				{
 					"name": "updateBookStock",
 					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "<API Key>",
-									"type": "string"
-								},
-								{
-									"key": "in",
-									"value": "header",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [
 							{
@@ -345,11 +339,17 @@
 							{
 								"key": "Accept",
 								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2Njg5NjExNjAsImV4cCI6MTY2OTA0NzU2MH0.IcrUcvkExdxKITn-1_UUjnrIHjkWmT1M8QXN0rN3948qool1xLum087mQXw_Mlw6UIIan-vnJkta5D1E_AKERA",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"newStock\": 81569023\n}",
+							"raw": "{\n  \"newStock\": 33\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -357,20 +357,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/books/:bookId",
+							"raw": "{{baseUrl}}/books/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"books",
-								":bookId"
-							],
-							"variable": [
-								{
-									"key": "bookId",
-									"value": "85071220",
-									"description": "(Required) bookId"
-								}
+								"1"
 							]
 						}
 					},
@@ -427,6 +420,26 @@
 						}
 					]
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		},
 		{
@@ -468,7 +481,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"bookRequestList\": [\n    {\n      \"bookId\": 6163482,\n      \"quantity\": -18261868\n    },\n    {\n      \"bookId\": 11753512,\n      \"quantity\": -8509760\n    }\n  ],\n  \"customerId\": -21374468\n}",
+							"raw": "{\n  \"bookRequestList\": [\n    {\n      \"bookId\": 1,\n      \"quantity\": 1\n    }\n  ],\n  \"customerId\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -755,20 +768,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/orders/:id",
+							"raw": "{{baseUrl}}/orders/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"orders",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "85071220",
-									"description": "(Required) id"
-								}
+								"1"
 							]
 						}
 					},
@@ -821,26 +827,6 @@
 		{
 			"name": "createCustomer",
 			"request": {
-				"auth": {
-					"type": "apikey",
-					"apikey": [
-						{
-							"key": "key",
-							"value": "Authorization",
-							"type": "string"
-						},
-						{
-							"key": "value",
-							"value": "<API Key>",
-							"type": "string"
-						},
-						{
-							"key": "in",
-							"value": "header",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [
 					{
@@ -854,7 +840,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"laborum officia Ut\"\n}",
+					"raw": "{\n  \"name\": \"new customer\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1089,11 +1075,46 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2Njg5NjE3MDEsImV4cCI6MTY2OTA0ODEwMX0.tFIGtd7NickyQuLCakiztiG7wRqVhs9x1cIpGmsgREuyTvuf_qPW54tfvdWdmCEnFkkIsYUHC28SPbZJuLtd4A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "//localhost:8080",
+			"value": "localhost:8080",
 			"type": "string"
+		},
+		{
+			"key": "bearertoken",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJpYXQiOjE2Njg5NTU3ODUsImV4cCI6MTY2OTA0MjE4NX0.JEmZQfOCwLR_HIsTWSl_Pe1-YCJGchW2O8B1tdcU-DChC4PVX1LApeuBWRX5tzNEUFeBoiCtRxfbBuBtBZSAJQ",
+			"disabled": true
 		}
 	]
 }

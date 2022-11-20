@@ -14,7 +14,7 @@ import java.util.List;
 public interface OrderHeaderRepository extends JpaRepository<OrderHeader, Long> {
     @Query(
             value = "SELECT " +
-                    "a.created_at as monthx, " +
+                    "a.created_at as date, " +
                     "sum(b.quantity) as totalBookCount, " +
                     "count(distinct a.id) as totalOrderCount " +
                     "FROM reading.ORDER_HEADERS a, reading.ORDER_LINES b " +

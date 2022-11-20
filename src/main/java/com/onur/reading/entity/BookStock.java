@@ -1,5 +1,6 @@
 package com.onur.reading.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class BookStock {
 
     @OneToOne
     @JoinColumn(name = "book_id")
+    @JsonIgnore
     private Book book;
 
     private LocalDateTime createdAt = LocalDateTime.now();

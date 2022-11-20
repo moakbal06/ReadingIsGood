@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.util.Optional;
+import java.util.prefs.BackingStoreException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -43,7 +44,7 @@ public class BookServiceTest {
 
 
     @Test
-    public void createBookTest_whenSuccessRequest_thenReturnBookResponse() {
+    public void createBookTest_whenSuccessRequest_thenReturnBookResponse() throws BackingStoreException {
         // GIVEN
         when(bookRepository.save(any(Book.class))).thenReturn(Book.builder()
                 .id(500L)

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.prefs.BackingStoreException;
 
 @Service
 public class BookService {
@@ -21,7 +22,8 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public BookResponse createBook(CreateBookRequest createBookRequest) {
+    public BookResponse createBook(CreateBookRequest createBookRequest) throws BackingStoreException {
+        validateForCreate(createBookRequest);
         Book book = Book.of(createBookRequest);
         BookStock bookStock = BookStock.builder()
                 .book(book)
@@ -33,17 +35,32 @@ public class BookService {
         return BookResponse.of(bookRepository.save(book));
     }
 
+    private void validateForCreate(CreateBookRequest createBookRequest) throws BackingStoreException {
+
+        if(createBookRequest.getQuantity() < 0){
+            throw new BackingStoreException("You cannot create a book with negative quantity");
+        }
+
+    }
+
     public Book getBookById(Long bookId) {
         return bookRepository.findById(bookId).orElseThrow(BookNotFoundException::new);
     }
 
-    public BookResponse updateStock(Long bookId, StockUpdateRequest stockUpdateRequest) {
-
+    public BookResponse updateStock(Long bookId, StockUpdateRequest stockUpdateRequest) throws BackingStoreException {
+        validateForUpdate(stockUpdateRequest);
         Book bookById = getBookById(bookId);
         BookStock bookStock = bookById.getBookStock();
         bookStock.setQuantity(stockUpdateRequest.getNewStock());
         Book savedBook = bookRepository.save(bookById);
 
         return BookResponse.of(savedBook);
+    }
+
+    private void validateForUpdate(StockUpdateRequest stockUpdateRequest) throws BackingStoreException {
+        if(stockUpdateRequest.getNewStock() < 0){
+            throw new BackingStoreException("You cannot create a book with negative quantity");
+        }
+
     }
 }

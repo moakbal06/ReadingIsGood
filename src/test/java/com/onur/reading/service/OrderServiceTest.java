@@ -93,7 +93,7 @@ class OrderServiceTest {
         // WHEN
         List<OrderResponse> list = orderService.getOrdersFromCustomer(1L);
         // THEN
-        assertThat(list.get(0).getLines().get(0).getQuantity()).isEqualTo(new BigDecimal("12"));
+        assertThat(list.get(0).getLines().get(0).getQuantity()).isEqualTo(12L);
         assertThat(list.get(0).getLines().get(0).getId()).isEqualTo(1);
 
     }

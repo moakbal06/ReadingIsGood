@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.prefs.BackingStoreException;
+
 @RestController
 @RequestMapping("/books")
 public class BookController {
@@ -19,11 +21,11 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<BookResponse> createBook(@RequestBody CreateBookRequest createBookRequest) {
+    public ResponseEntity<BookResponse> createBook(@RequestBody CreateBookRequest createBookRequest) throws BackingStoreException {
         return ResponseEntity.status(HttpStatus.CREATED).body(bookService.createBook(createBookRequest));
     }
     @PutMapping(path = "/{bookId}")
-    public ResponseEntity<BookResponse> updateBookStock(@PathVariable Long bookId, @RequestBody StockUpdateRequest stockUpdateRequest) {
+    public ResponseEntity<BookResponse> updateBookStock(@PathVariable Long bookId, @RequestBody StockUpdateRequest stockUpdateRequest) throws BackingStoreException {
         return ResponseEntity.status(HttpStatus.CREATED).body(bookService.updateStock(bookId,stockUpdateRequest));
     }
 }
