@@ -39,3 +39,23 @@ Give a ⭐️ if this project helped you!
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+## Instuctions
+
+* mvn clean install
+* docker build -t reading .
+* docker run  -d -p 8080:8080 readingapp
+* And Go postman and execute requests like in SS.
+* 
+Ekran Resmi 2022-11-20 19.30.08
+Ekran Resmi 2022-11-20 17.40.42
+Ekran Resmi 2022-11-20 17.41.35
+Ekran Resmi 2022-11-20 17.42.30
+Ekran Resmi 2022-11-20 17.43.23
+Ekran Resmi 2022-11-20 17.44.52
+Ekran Resmi 2022-11-20 19.19.51
+Ekran Resmi 2022-11-20 19.22.32
+Ekran Resmi 2022-11-20 19.22.49
+Ekran Resmi 2022-11-20 19.23.47
+Ekran Resmi 2022-11-20 19.29.30
+Ekran Resmi 2022-11-20 19.29.50
